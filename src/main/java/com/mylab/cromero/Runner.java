@@ -38,9 +38,9 @@ public class Runner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         logger.info("Sending message...");
 
-        rabbitTemplate.convertAndSend(EXCHANGE_NAME,null, "Hello from RabbitMQ Sent 1!");
-        rabbitTemplate.convertAndSend(EXCHANGE_NAME,null, "Hello from RabbitMQ Sent 2!");
-        rabbitTemplate.convertAndSend(EXCHANGE_NAME,null, "Hello from RabbitMQ Sent 3!");
+        rabbitTemplate.convertAndSend(EXCHANGE_NAME,FirstReceiver.QUEUE_ROUTINGKEY, "Hello from RabbitMQ Sent 1!");
+        rabbitTemplate.convertAndSend(EXCHANGE_NAME,SecondReceiver.QUEUE_ROUTINGKEY, "Hello from RabbitMQ Sent 2!");
+        rabbitTemplate.convertAndSend(EXCHANGE_NAME,FirstReceiver.QUEUE_ROUTINGKEY, "Hello from RabbitMQ Sent 3!");
 
         context.close();
     }
