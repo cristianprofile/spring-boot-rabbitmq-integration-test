@@ -8,4 +8,5 @@ You'll build an application that publishes  messages using Spring AMQP's `Rabbit
 message using `MessageListenerAdapter`. Integration Test is using qpid-broker in memory AMQP server.
 
 == What you'll need
-:java_version: 1.8
+*Java 1.8* is a must
+*Maven/Gradle* is a must
