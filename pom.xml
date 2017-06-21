@@ -39,6 +39,7 @@
             <groupId>org.apache.qpid</groupId>
             <artifactId>qpid-broker</artifactId>
             <version>6.0.4</version>
+            <scope>test</scope>
             <exclusions>
                 <exclusion>
                     <groupId>ch.qos.logback</groupId>

@@ -7,6 +7,8 @@ This guide walks you through the process of setting up a RabbitMQ AMQP server th
 You'll build an application that publishes  messages using Spring AMQP's `RabbitTemplate` and subscribes to the
 message using `MessageListenerAdapter`. Integration Test is using qpid-broker in memory AMQP server.
 
+App could be start by Spring boot main method sending (Application.class). If you want to  run Spring Application Rabbitmq server is a must.
+
 == What you'll need
 *Java 1.8* is a must
 *Maven/Gradle* is a must
