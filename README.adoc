@@ -1,0 +1,11 @@
+== Spring boot Rabbitmq with integration test
+
+This guide walks you through the process of setting up a RabbitMQ AMQP server that  publishes and subscribes to messages.
+
+== What you'll build
+
+You'll build an application that publishes  messages using Spring AMQP's `RabbitTemplate` and subscribes to the
+message using `MessageListenerAdapter`. Integration Test is using qpid-broker in memory AMQP server.
+
+== What you'll need
+:java_version: 1.8
