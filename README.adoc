@@ -11,7 +11,9 @@ App could be start by Spring boot main method sending (Application.class). If yo
 
 == What you'll need
 *Java 1.8* is a must
+
 *Maven/Gradle* is a must
+
 *Docker
 
 == Install tools
