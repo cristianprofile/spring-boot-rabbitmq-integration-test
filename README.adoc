@@ -31,6 +31,7 @@ image::images/rabbit_docker_spring_boot_main_configuration.png?raw=true[Spring b
 Run your main boot application and access to admin console(this example is http://localhost:32807 with user/bitnami) and verify *Direct Exchage* and *Queues* have been created:
 
 Java Configuration Beans:
+
 image::/images/senders_java_configuration.png?raw=true[Definition of queues/exchange]
 
 Exchanges: *spring-boot-exchange*:
