@@ -44,6 +44,12 @@ Bindings between *spring-boot-exchange* and queues: spring-boot* , *spring-boot2
 
 image::/images/rabbit_exchange_bindings.png?raw=true[Rabbitmq bindings ]
 
+Test folder include in memory qpid-broker :
+
+It will send messages to exchange with a routing key. If a receiver catch a message will increase its counter.Assertion will validate correct value:
+
+image::/images/test.png?raw=true[Rabbitmq bindings ]
+
 
 
 
