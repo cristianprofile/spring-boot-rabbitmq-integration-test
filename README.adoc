@@ -22,20 +22,22 @@ Here you have a snapshot with Kitematic for docker:
 
 image::/images/rabbit_docker.png?raw=true[Bitnami docker Image for Rabbitmq]
 Another snapshot with user and password settings:
+
 image::/images/rabbit_docker_user.png?raw=true[Bitnami docker Image for Rabbitmq User and Password]
 In app main resources folder you can find Spring boot Config to be able to connect to Rabbitmq:
+
 image::images/rabbit_docker_user.png?raw=true[Spring boot main application.properties]
+
 Run your main boot application and access to admin console(this example is http://localhost:32807 with user/bitnami) and verify *Direct Exchage* and *Queues was created*:
 *spring-boot-exchange*:
+
 image::/images/rabbit_exchange.png?raw=true[Rabbitmq exchange]
 *spring-boot* and *spring-boot2* queues:
-image::/images/rabbit_queues?raw=true[Rabbitmq queues ]
+
+image::/images/rabbit_queues.png?raw=true[Rabbitmq queues ]
 Bindings between *spring-boot-exchange* and queues: spring-boot* , *spring-boot2*:
-image::/images/rabbit_exchange_bindings?raw=true[Rabbitmq bindings ]
 
-
-
-
+image::/images/rabbit_exchange_bindings.png?raw=true[Rabbitmq bindings ]
 
 
 
