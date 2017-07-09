@@ -12,3 +12,32 @@ App could be start by Spring boot main method sending (Application.class). If yo
 == What you'll need
 *Java 1.8* is a must
 *Maven/Gradle* is a must
+*Docker
+
+== Install tools
+
+A Rabbitmq instance is needed to be able to test our **Spring boot main **project(In test folder we use qpid-broker in memory Server). Run your docker tool and search one Rabbitmq image in docker Hub. In our example bitname image will be used to run main project (https://hub.docker.com/r/bitnami/rabbitmq/)
+
+Here you have a snapshot with Kitematic for docker:
+![Bitnami docker Image for Rabbitmq ](/images/rabbit_docker.png?raw=true "Bitnami docker Image for Rabbitmq")
+Another snapshot with user and password settings:
+![Bitnami docker Image for Rabbitmq User and Password ](/images/rabbit_docker_user.png?raw=true "Bitnami docker Image for Rabbitmq User and Password")
+In app main resources folder you can find Spring boot Config to be able to connect to Rabbitmq:
+![Spring boot main application.properties ](/images/rabbit_docker_user.png?raw=true "Spring boot main application.properties")
+Run your main boot application and access to admin console(this example is http://localhost:32807 with user/bitnami) and verify *Direct Exchage* and *Queues was created*:
+*spring-boot-exchange*:
+![Rabbitmq exchange ](/images/rabbit_exchange.png?raw=true "Rabbitmq exchange")
+*spring-boot* and *spring-boot2* queues:
+![Rabbitmq queues ](/images/rabbit_queues?raw=true "Rabbitmq queues")
+Bindings between *spring-boot-exchange* and queues: spring-boot* , *spring-boot2*:
+![Rabbitmq bindings ](/images/rabbit_exchange_bindings?raw=true "Rabbitmq bindings")
+
+
+
+
+
+
+
+
+
+

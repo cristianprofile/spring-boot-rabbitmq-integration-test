@@ -12,17 +12,16 @@ import static com.mylab.cromero.Application.EXCHANGE_NAME;
 
 @Component
 public class FirstReceiver {
-    private final static String QUEUE_NAME = "spring-boot";
-
     public final static String QUEUE_ROUTINGKEY = "routingKey1-boot";
+    private final static String QUEUE_NAME = "spring-boot";
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private Integer counter = 0;
 
     @RabbitListener(bindings = @QueueBinding(value = @Queue(value = QUEUE_NAME, durable = "true"),
-                                             exchange = @Exchange(value = EXCHANGE_NAME, ignoreDeclarationExceptions = "true"),
-                                             key = QUEUE_ROUTINGKEY))
+            exchange = @Exchange(value = EXCHANGE_NAME, ignoreDeclarationExceptions = "true"),
+            key = QUEUE_ROUTINGKEY))
     public void receiveMessage(String message) {
         logger.info("From receiver 1: Received <{}>" + message);
         counter++;

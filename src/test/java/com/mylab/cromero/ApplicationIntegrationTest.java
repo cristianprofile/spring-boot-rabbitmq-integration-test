@@ -27,6 +27,7 @@ import org.junit.rules.ExternalResource;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -40,8 +41,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 public class ApplicationIntegrationTest {
 
+    @Value("${spring.rabbitmq.port}")
+    private  String rabbitmqPort;
+
+
     public static final String QPID_CONFIG_LOCATION = "src/test/resources/qpid-config.json";
-    public static final String QPID_PORT = "5672";
 
     @MockBean
     private Runner runner;
@@ -51,9 +55,12 @@ public class ApplicationIntegrationTest {
 
     @Autowired
     private FirstReceiver firstReceiver;
+
     @Autowired
     private SecondReceiver secondReceiver;
 
+
+    public static final String RABIITMQ_PORT = "5676";
 
     //TODO Extract external util class (Start(Stop Rabbitmq )
     @ClassRule public static final ExternalResource resource = new  ExternalResource() {
@@ -61,7 +68,7 @@ public class ApplicationIntegrationTest {
 
         @Override
         protected void before() throws Throwable {
-            String amqpPort = QPID_PORT;
+            String amqpPort = RABIITMQ_PORT;
             File tmpFolder = Files.createTempDir();
             String userDir = System.getProperty("user.dir").toString();
             File file = new File(userDir);
@@ -85,9 +92,7 @@ public class ApplicationIntegrationTest {
 
 
     @Test
-    //TODO EXTRACT TEST WITH ROUTING KEY FOR DIRECT EXCHANGE
     public void testWithFirstReceiverRoutingKey() throws Exception {
-        //TODO CREATE @ RULE TO BE ABLE TO INIT COUNTERS
         firstReceiver.initCounter();
         secondReceiver.initCounter();
         rabbitTemplate.convertAndSend(EXCHANGE_NAME,FirstReceiver.QUEUE_ROUTINGKEY, "Hello from RabbitMQ Sent 1!");
@@ -99,7 +104,6 @@ public class ApplicationIntegrationTest {
     }
 
     @Test
-    //TODO EXTRACT TEST WITH ROUTING KEY FOR DIRECT EXCHANGE
     public void testMixReceiverRoutingKey() throws Exception {
         //TODO CREATE @ RULE TO BE ABLE TO INIT COUNTERS
         firstReceiver.initCounter();
@@ -113,9 +117,7 @@ public class ApplicationIntegrationTest {
     }
 
     @Test
-    //TODO EXTRACT TEST WITH ROUTING KEY FOR DIRECT EXCHANGE
     public void testNoRoutingkey() throws Exception {
-        //TODO CREATE @ RULE TO BE ABLE TO INIT COUNTERS
         firstReceiver.initCounter();
         secondReceiver.initCounter();
         rabbitTemplate.convertAndSend(EXCHANGE_NAME,"routing_not_found", "Hello from RabbitMQ Sent 1!");
