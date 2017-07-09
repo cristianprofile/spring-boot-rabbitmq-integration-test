@@ -32,7 +32,7 @@ Run your main boot application and access to admin console(this example is http:
 
 Java Configuration Beans:
 
-image::/images/senders_java_configuration.png?raw=true[Definition of queues/exchange]
+image::/images/senders_java_bean_configuration.png?raw=true[Definition of queues/exchange]
 
 Exchanges: *spring-boot-exchange*:
 
