@@ -10,11 +10,14 @@ message using `MessageListenerAdapter`. Integration Test is using qpid-broker in
 App could be start by Spring boot main method sending (Application.class). If you want to  run Spring Application Rabbitmq server is a must.
 
 == What you'll need
+
 *Java 1.8* is a must
 
 *Maven/Gradle* is a must
 
-*Docker
+*Docker* will be used to run rabbitMq Server
+
+15 minutues of your appreciated time and be patient. Programming is not a game It is a fun way to pass your weekends :)
 
 == Install tools
 
