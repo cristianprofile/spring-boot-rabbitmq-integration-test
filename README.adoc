@@ -26,7 +26,7 @@ Another snapshot with user and password settings:
 image::/images/rabbit_docker_user.png?raw=true[Bitnami docker Image for Rabbitmq User and Password]
 In app main resources folder you can find Spring boot Config to be able to connect to Rabbitmq:
 
-image::images/rabbit_docker_user.png?raw=true[Spring boot main application.properties]
+image::images/rabbit_docker_spring_boot_main_configuration.png?raw=true[Spring boot main application.properties]
 
 Run your main boot application and access to admin console(this example is http://localhost:32807 with user/bitnami) and verify *Direct Exchage* and *Queues was created*:
 *spring-boot-exchange*:
