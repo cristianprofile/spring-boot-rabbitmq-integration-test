@@ -2,6 +2,10 @@
 
 This guide walks you through the process of setting up a RabbitMQ AMQP server that  publishes and subscribes to messages.
 
+We are going to configure a direct exchange binding with routing key bounded to our queues. Here is graphic definition of our direct exchange model:
+
+image::/images/amq-definition.png?raw=true[Amq Definition]
+
 == What you'll build
 
 You'll build an application that publishes  messages using Spring AMQP's `RabbitTemplate` and subscribes to the
