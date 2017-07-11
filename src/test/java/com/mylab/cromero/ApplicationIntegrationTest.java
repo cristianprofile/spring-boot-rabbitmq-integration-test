@@ -33,6 +33,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.util.Properties;
 
 import static com.mylab.cromero.Application.EXCHANGE_NAME;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -46,6 +48,7 @@ public class ApplicationIntegrationTest {
 
 
     public static final String QPID_CONFIG_LOCATION = "src/test/resources/qpid-config.json";
+    public static final String APPLICATION_CONFIG_LOCATION = "src/test/resources/application.properties";
 
     @MockBean
     private Runner runner;
@@ -59,16 +62,15 @@ public class ApplicationIntegrationTest {
     @Autowired
     private SecondReceiver secondReceiver;
 
-
-    public static final String RABIITMQ_PORT = "5676";
-
     //TODO Extract external util class (Start(Stop Rabbitmq )
     @ClassRule public static final ExternalResource resource = new  ExternalResource() {
         private Broker broker = new Broker();
 
         @Override
         protected void before() throws Throwable {
-            String amqpPort = RABIITMQ_PORT;
+            Properties properties = new Properties();
+            properties.load(new FileInputStream(new File(APPLICATION_CONFIG_LOCATION)));
+            String amqpPort = properties.getProperty("spring.rabbitmq.port");
             File tmpFolder = Files.createTempDir();
             String userDir = System.getProperty("user.dir").toString();
             File file = new File(userDir);
